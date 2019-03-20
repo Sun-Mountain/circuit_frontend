@@ -8,7 +8,7 @@ import CircuitDetail from './containers/CircuitDetailView';
 const BaseRouter = () => (
     <div>
         <Route exact path='/' component={CircuitList} />
-        <Route exact path='/:id' component={CircuitDetail} />
+        <Route exact path='/circuits/:id' component={CircuitDetail} />
     </div>
 );
 
