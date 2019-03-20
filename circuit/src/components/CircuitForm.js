@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Form, Input, Button, } from 'antd';
 
 import axios from 'axios';
 
-class CircuitForm extends React.Component {
+class CircuitForm extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            description: ''
+        };
+        this.onChange = this.onChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    }
+
+    onChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    };
 
     handleFormSubmit = (event, requestType, circuitID) => {
+        // event.preventDefault();
         const name = event.target.elements.name.value;
         const description = event.target.elements.description.value;
 
@@ -19,15 +34,11 @@ class CircuitForm extends React.Component {
         switch ( requestType ) {
 
         case 'post':
-            return axios.post('http://localhost:8000/api/create/', newCircuit)
-            .then((res) => {console.log(newCircuit);
-            
-            let circuit = [...this.state.newCircuit]
-            circuit.push(newCircuit)
-            this.setState({circuit})})
+            return axios.post('http://circuit-backend.herokuapp.com/api/create/', this.state)
+            .then((res) => {console.log(res);})
             .catch(error => console.log(error));
         case 'put':
-            return axios.put(`http://localhost:8000/api/${circuitID}/update/`, {
+            return axios.put(`http://circuit-backend.herokuapp.com/api/${circuitID}/update/`, {
                 name: name,
                 description: description
             })
@@ -37,6 +48,7 @@ class CircuitForm extends React.Component {
     }
 
     render() {
+        const { name, description } = this.state;
         return (
         <div className="list-form-container">
             <Form onSubmit={
@@ -45,10 +57,10 @@ class CircuitForm extends React.Component {
                     this.props.requestType,
                     this.props.circuitID ) } >
             <Form.Item label="Circuit Name"  className="label">
-                <Input name="name" placeholder="Circuit Name" className="form-input" />
+                <Input name="name" placeholder="Circuit Name" className="form-input" value={name} onChange={this.onChange} />
             </Form.Item>
             <Form.Item label="Description " className="label">
-                <Input name="description" className="form-input" />
+                <Input name="description" className="form-input" value={description} onChange={this.onChange} />
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit" className="btn-submit" >

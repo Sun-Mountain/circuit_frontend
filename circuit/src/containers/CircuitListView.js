@@ -6,13 +6,16 @@ import CircuitForm from '../components/CircuitForm';
 
 class CircuitList extends React.Component {
     
-    state = {
-        circuitList: []
+    constructor(props) {
+        super(props)
+            this.state = {
+                circuitList: []
+            }
     }
 
     componentDidMount() {
         // axios.get to call both apis
-        axios.get('http://localhost:8000/api/')
+        axios.get('http://circuit-backend.herokuapp.com/api/')
         // separate them into their respective arrays
             .then(res => {
                 this.setState({
@@ -34,7 +37,7 @@ class CircuitList extends React.Component {
                     btnText="Create" />
                 </div>
                 <div>
-                <Circuits data={this.state.circuitList} />
+                <Circuits data={this.state.circuitList} onChange={this.onChange} />
                 </div>
             </div>
         )

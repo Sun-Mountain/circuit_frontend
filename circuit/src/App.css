@@ -170,13 +170,13 @@ header a:hover {
 
 .list-form-container {
     margin: 0 25px;
-    overflow: auto;
     padding: 25px;
 }
 
 .list-view-container {
     display: flex;
     flex-wrap: wrap;
+    height: 80vh;
     justify-content: center;
     margin: 0 auto;
 }

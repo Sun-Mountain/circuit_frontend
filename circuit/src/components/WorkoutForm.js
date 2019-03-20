@@ -20,7 +20,7 @@ class WorkoutForm extends React.Component {
 
         console.log(exercise, minutes, seconds, circuit)
 
-        axios.post('http://localhost:8000/api/workout/create/', newWorkout)
+        axios.post('http://circuit-backend.herokuapp.com/api/workout/create/', newWorkout)
             .then(res => {
                 console.log(newWorkout);
             })

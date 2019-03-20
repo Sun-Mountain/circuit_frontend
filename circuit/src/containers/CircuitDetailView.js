@@ -27,8 +27,8 @@ class CircuitDetail extends React.Component {
 
         // id and put workouts w/ circuit id in array
         axios.all([
-            axios.get(`http://localhost:8000/api/${circuitID}`),
-            axios.get(`http://localhost:8000/api/workout/`)
+            axios.get(`http://circuit-backend.herokuapp.com/api/${circuitID}`),
+            axios.get(`http://circuit-backend.herokuapp.com/api/workout/`)
         ])
             .then(axios.spread((circuitRes, workoutRes) => {
                 this.setState({
@@ -42,7 +42,7 @@ class CircuitDetail extends React.Component {
     handleDeleteCircuit = (event) => {
         const circuitID = this.props.match.params.id;
 
-        axios.delete(`http://localhost:8000/api/${circuitID}/delete/`);
+        axios.delete(`http://circuit-backend.herokuapp.com/api/${circuitID}/delete/`, this.state);
         this.props.history.push('/');
         this.forceUpdate();
     }
@@ -50,7 +50,7 @@ class CircuitDetail extends React.Component {
     handleDeleteWorkout = (workoutID) => {
         const circuitID = this.props.match.params.id;
 
-        axios.delete(`http://localhost:8000/api/workout/${workoutID}/delete/`);
+        axios.delete(`http://circuit-backend.herokuapp.com/api/workout/${workoutID}/delete/`);
         this.props.history.push(`/circuits/${circuitID}`);
         this.forceUpdate();
     }
