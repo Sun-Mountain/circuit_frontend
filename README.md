@@ -3,6 +3,9 @@
 ## Description
 Circuit App is a React/Django application that allows users to create circuits and add workouts with specified length of time (in minutes and seconds).
 
+## Deployed Site
+http://circuitapp.surge.sh/
+
 ## Backend/API
 Deployed: https://circuit-backend.herokuapp.com/api/
 
