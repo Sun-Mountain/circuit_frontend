@@ -12,7 +12,7 @@ Deployed: https://circuit-backend.herokuapp.com/api/
 Github: https://github.com/Sun-Mountain/circuit_backend
 
 ## Tech
-This is a React.js frontend with Django backend, styled with CSS.
+This is a React.js frontend and Django backend, styled with CSS.
 
 ## Dependencies
 **Frontend**
