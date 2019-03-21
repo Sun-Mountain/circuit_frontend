@@ -9,7 +9,7 @@ const Circuit = (props) => {
             dataSource={props.data}
             renderItem={item => (
                 <div className="circuit-list-item">
-                    <a href={`/circuits/${item.id}`} className="circuit-link">{item.name}</a>
+                    <a href={`circuits/${item.id}`} className="circuit-link">{item.name}</a>
                     <br />
                     {item.description}
                 </div>
