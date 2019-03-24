@@ -39,14 +39,6 @@ class CircuitDetail extends React.Component {
             }))
     }
 
-    handleDeleteCircuit = (event) => {
-        const circuitID = this.props.match.params.id;
-
-        axios.delete(`http://circuit-backend.herokuapp.com/api/${circuitID}/delete/`, this.state);
-        this.props.history.push('/');
-        this.forceUpdate();
-    }
-
     handleDeleteWorkout = (workoutID) => {
         const circuitID = this.props.match.params.id;
 
@@ -78,8 +70,8 @@ class CircuitDetail extends React.Component {
             <div className="list-view-container circuit-detail">
                 <div className="detail-view">
                     <h2 className="list-detail">{this.state.circuit.name}</h2>
-                <form onSubmit={this.handleDeleteCircuit}>
-                    <Button type="danger" htmlType="submit">Delete</Button>
+                <form onSubmit={() => this.props.onDelete(circuitID)}>
+                    <Button type="danger" htmlType="submit" >Delete</Button>
                 </form>
                     <p>{this.state.circuit.description}</p>
                     {circuitWorkout}

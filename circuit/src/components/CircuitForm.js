@@ -24,11 +24,6 @@ class CircuitForm extends Component {
         const name = event.target.elements.name.value;
         const description = event.target.elements.description.value;
 
-        var newCircuit = {
-            name: name,
-            description: description
-        }
-
         console.log(name, description)
 
         switch ( requestType ) {
