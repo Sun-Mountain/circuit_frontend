@@ -43,7 +43,7 @@ class WorkoutForm extends React.Component {
                 <Input name="seconds"  />
             </Form.Item>
             <Form.Item>
-                <Button type="primary" htmlType="submit" onClick={this.refresh} >
+                <Button type="primary" htmlType="submit" className="workout-create-btn" onClick={this.refresh} >
                     {this.props.btnText}
                 </Button>
             </Form.Item>

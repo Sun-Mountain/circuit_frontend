@@ -30,6 +30,7 @@ body {
 
 .circuit-delete-button {
     background-color: #BB0A21;
+    border: 0px;
     border-radius: 5px;
     color: #FFFFFF;
     font-size: 10px;
@@ -44,8 +45,9 @@ body {
     align-content: center;
     display: flex;
     flex-direction: column;
+    height: 70vh;
     justify-content: center;
-    margin: 0 auto;
+    overflow: auto;
 }
 
 .circuit-link {
@@ -72,13 +74,14 @@ body {
 }
 
 .detail-view {
-    margin: 20px 0 35px 0;
+    margin: 0 0 35px 0;
 }
 
 .detail-view-title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 10px 0 0 0;
 }
 
 .detail-view-title h2 {
@@ -93,7 +96,6 @@ body {
     background-color: #0F223A;
     box-shadow: 5px 5px #EE7925;
     color: #FCAB10;
-    height: 200px;
     margin: auto 5px;
     padding: 10px;
 }
@@ -211,12 +213,25 @@ header a:hover {
     width: 300px;
 }
 
+.workout-create-btn {
+    background-color: #FCAB10;
+    border: 1px solid #0F223A;
+    color: #0F223A;
+    margin: 14px 0 7px 0;
+}
+
+.workout-create-btn:hover {
+    background-color: #0F223A;
+    border: 1px solid #FCAB10;
+    color: #FCAB10;
+}
+
 .workout-form-style {
     background-color: #FCAB10;
     box-shadow: 5px 5px #0F223A;
     color: #0F223A;
     height: 200px;
-    margin: 5px auto 50px auto;
+    margin: 5px auto 15px auto;
     padding: 10px;
     width: 200px;
 }
