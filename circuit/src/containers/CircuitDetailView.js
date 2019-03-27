@@ -16,6 +16,7 @@ class CircuitDetail extends React.Component {
     }
 
     this.fetchAPIs = this.fetchAPIs.bind(this)
+    // this.afterDeleteCircuit = this.afterDeleteCircuit.bind(this)
 }
 
     componentDidMount() {
@@ -45,6 +46,16 @@ class CircuitDetail extends React.Component {
         axios.delete(`http://circuit-backend.herokuapp.com/api/workout/${workoutID}/delete/`);
         this.props.history.push(`/circuits/${circuitID}`);
         this.forceUpdate();
+        console.log('deleted!')
+    }
+
+    leadingZero(num){
+        if(num<10){
+            return '0'+num;
+        }
+        else{
+            return num
+        }
     }
 
     render() {
@@ -57,7 +68,7 @@ class CircuitDetail extends React.Component {
             if (workoutCircuit === circuitID) {
                 return(
                     <div key={index}>
-                        {workout.exercise} - {workout.minutes} min {workout.seconds} sec 
+                        {workout.exercise} - {this.leadingZero(workout.minutes)} min {this.leadingZero(workout.seconds)} sec 
                         <form onSubmit={() => this.handleDeleteWorkout(workoutID)}>
                         <Button type="danger" htmlType="submit">Delete This Workout</Button>
                         </form>
@@ -69,10 +80,14 @@ class CircuitDetail extends React.Component {
         return (
             <div className="list-view-container circuit-detail">
                 <div className="detail-view">
-                    <h2 className="list-detail">{this.state.circuit.name}</h2>
-                <form onSubmit={() => this.props.onDelete(circuitID)}>
-                    <Button type="danger" htmlType="submit" >Delete</Button>
-                </form>
+                    <div className="detail-view-title">
+                        <h2 className="list-detail">{this.state.circuit.name}</h2>
+                        <div className="circuit-delete-btn-container">
+                            <form>
+                                <Button type="danger" htmlType="submit" className="circuit-delete-button" onClick={() => this.props.onDelete(circuitID)} >X</Button>
+                            </form>
+                        </div>
+                    </div>
                     <p>{this.state.circuit.description}</p>
                     {circuitWorkout}
                 </div>

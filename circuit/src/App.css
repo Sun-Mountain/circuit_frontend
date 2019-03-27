@@ -22,6 +22,24 @@ body {
     margin: 10px 0 0 0;
 }
 
+.circuit-delete-btn-container {
+    padding: 0 10px;
+    position: relative;
+    width: 25px;
+}
+
+.circuit-delete-button {
+    background-color: #BB0A21;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 0 7px;
+    padding: 2px 7px;
+    position: absolute;
+    bottom: 0;
+}
+
 .circuit-detail {
     align-content: center;
     display: flex;
@@ -54,7 +72,17 @@ body {
 }
 
 .detail-view {
-    margin: 0 0 35px 0;
+    margin: 20px 0 35px 0;
+}
+
+.detail-view-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detail-view-title h2 {
+    margin: 0;
 }
 
 .form-input {
@@ -175,14 +203,22 @@ header a:hover {
 
 .list-view-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: column;
     height: 80vh;
     justify-content: center;
     margin: 0 auto;
+    padding: 20px 0 0 0;
+    width: 300px;
 }
 
-.workout-form {
-    margin: 0 0  55px 0;
+.workout-form-style {
+    background-color: #FCAB10;
+    box-shadow: 5px 5px #0F223A;
+    color: #0F223A;
+    height: 200px;
+    margin: 5px auto 50px auto;
+    padding: 10px;
+    width: 200px;
 }
 
 @media only screen and (max-width: 600px) {

@@ -29,7 +29,7 @@ class WorkoutForm extends React.Component {
 
     render() {
         return (
-        <div className="list-form-container workout-form">
+        <div className="list-form-container workout-form-style">
             <Form onSubmit={(event) => this.handleFormSubmit(event, 
                     this.props.circuitID )} >
                     <h3>Add A Workout</h3>
